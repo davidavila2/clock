@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+    <style> 
+      .clockStyle { display:inline; } 
+    </style>
+</head>
+<body>
+  <div id="clockDisplay" class="clockStyle"></div>
+<script>
+  function renderTime() {
+  var currentTime = new Date();
+  var ampm = "AM"; /*NOTE: The variable ampm determines AM or PM*/
+  var h = currentTime.getHours();
+  var m = currentTime.getMinutes();
+  var s = currentTime.getSeconds();
+  setTimeout('renderTime()',1000);
+  if (h == 0) { 
+  h = 12; } 
+  else if (
+  h > 12) { 
+  h = h - 12; ampm="PM"; } 
+  if (h < 10) {
+  h = "0" + h; } 
+  if (m < 10) 
+  { m = "0" + m; } 
+  if (s < 10) 
+  { s = "0" + s; }
+  /*NOTE: The next three lines need to have ? replaced by your code*/
+  
+  var myClock = document.renderTime('clockDisplay'); 
+  myClock.textContent = 'h' + ":" + 'm' + ":" + 's' + " " + ampm; 
+  myClock.innerText = h + ":" + m + ":" + s + " " + ampm; 
+  } 
+  renderTime(); 
+</script>
+</body>
+</html>
